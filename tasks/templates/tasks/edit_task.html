@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+    <style>
+        body {
+            background: #f6f8fa;
+            font-family: Inter, sans-serif;
+        }
+
+        .card {
+            max-width: 450px;
+            margin: 100px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Edit Task</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ task.title }}" required>
+        <input type="date" name="due_date" value="{{ task.due_date }}">
+        <select name="priority">
+            <option {% if task.priority == "Low" %}selected{% endif %}>Low</option>
+            <option {% if task.priority == "Medium" %}selected{% endif %}>Medium</option>
+            <option {% if task.priority == "High" %}selected{% endif %}>High</option>
+        </select>
+        <button>Update Task</button>
+    </form>
+</div>
+
+</body>
+</html>
