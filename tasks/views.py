@@ -219,3 +219,14 @@ def send_task_reminders():
 def test_reminder(request):
     send_task_reminders()
     return HttpResponse("Reminders sent")
+
+from django.shortcuts import render
+
+def dashboard(request):
+    return render(request, 'tasks/dashboard.html')
+
+def login_view(request):
+    return render(request, 'tasks/login.html')
+
+def signup_view(request):
+    return render(request, 'tasks/signup.html')
