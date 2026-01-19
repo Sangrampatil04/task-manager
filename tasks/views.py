@@ -10,6 +10,12 @@ from django.conf import settings
 
 from .models import Task
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Django is working 🚀")
+
+
 
 # ---------------- DASHBOARD ----------------
 
